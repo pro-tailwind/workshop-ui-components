@@ -1,9 +1,7 @@
 {
-  "name": "workshop-ui-components",
-  "description": "Identifying and extracting reusable UI components in a Tailwind CSS project",
-  "version": "1.0.0",
-  "private": "true",
-  "main": "index.js",
+  "name": "booking-ui",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -24,12 +22,10 @@
     "autoprefixer": "^10.4.7",
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.6",
+    "html-loader": "^3.1.2",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.11",
     "tailwindcss": "^3.1.4"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

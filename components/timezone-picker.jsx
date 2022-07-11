@@ -53,7 +53,7 @@ export function TimezonePicker({ activeTheme }) {
         <Dialog
           data-theme={activeTheme}
           onClose={setIsOpen}
-          className="fixed inset-0 z-10 overflow-y-auto px-4 pt-[35vh]"
+          className="fixed inset-0 z-10 overflow-y-auto px-4 pt-[30vh]"
         >
           <Transition.Child
             enter="transition ease-out duration-300"
@@ -98,9 +98,7 @@ export function TimezonePicker({ activeTheme }) {
                     {({ active }) => (
                       <div className={cx('px-8 py-2', active ? 'bg-indigo-500' : 'bg-white')}>
                         <div className="flex gap-2">
-                          <span
-                            className={cx('font-medium', active ? ' text-white' : 'text-slate-900')}
-                          >
+                          <span className={cx(active ? ' text-white' : 'text-slate-900')}>
                             {item.text}
                           </span>
                           <span className={cx(active ? 'text-indigo-200' : 'text-slate-400')}>
