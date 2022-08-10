@@ -11,11 +11,11 @@ export default {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'Tokens/Colors',
+  title: 'Tokens/Tailwind',
   // component: Button,
 }
 
-export const Primary = () => (
+export const Colors = () => (
   <div className="mx-auto max-w-5xl py-8 px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-8 items-end gap-x-12 gap-y-8">
       {Object.entries(theme.colors).map(([key, value]) => {
@@ -37,6 +37,28 @@ export const Primary = () => (
                 </li>
               ))}
             </ul>
+          </>
+        )
+      })}
+    </div>
+  </div>
+)
+
+export const Typography = () => (
+  <div className="mx-auto max-w-5xl py-8 px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-8 items-center gap-x-12 gap-y-8">
+      {Object.entries(theme.fontSize).map(([key, value]) => {
+        return (
+          <>
+            <h2 className="text-right leading-none">{key}</h2>
+            <div className="col-span-7">
+              <p
+                style={{ fontSize: value[0], lineHeight: value[1].lineHeight }}
+                className="truncate"
+              >
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              </p>
+            </div>
           </>
         )
       })}
