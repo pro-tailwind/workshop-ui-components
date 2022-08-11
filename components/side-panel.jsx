@@ -3,7 +3,7 @@ import { ClockIcon, VideoCameraIcon } from '@heroicons/react/outline'
 
 export function SidePanel() {
   return (
-    <aside className="rounded-t-2xl border-8 border-b-0 border-white bg-slate-100 xl:rounded-l-2xl xl:rounded-tr-none xl:border-b-8 xl:border-r-0 xl:pr-4">
+    <aside className="rounded-t-2xl border-8 border-b-0 border-white bg-white bg-opacity-90 backdrop-blur-md xl:rounded-l-2xl xl:rounded-tr-none xl:border-b-8 xl:border-r-0 xl:pr-4 [@supports(backdrop-filter:blur(0))]:bg-opacity-80">
       <div className="-mt-16 py-8 px-4 sm:px-8 md:mt-0 xl:-mt-16 xl:px-10">
         <div className="flex flex-col items-center gap-6 md:flex-row xl:flex-col xl:items-start">
           <Link href="/">
@@ -21,7 +21,7 @@ export function SidePanel() {
             <p className="mt-1 text-sm font-semibold uppercase tracking-wider text-indigo-600">
               with Simon Vrachliotis
             </p>
-            <p className="mt-8">Tailwind CSS for production-grade web applications.</p>
+            <p className="mt-4 xl:mt-8">Tailwind CSS for production-grade web applications.</p>
           </div>
         </div>
         <dl className="mt-12 flex flex-col gap-y-2 gap-x-12 rounded-lg border border-slate-300 p-4 md:flex-row xl:flex-col">

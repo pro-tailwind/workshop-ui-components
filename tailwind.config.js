@@ -12,7 +12,10 @@ module.exports = {
       fontFamily: {
         sans: ['Open Sans', 'sans-serif', ...defaultTheme.fontFamily.sans],
       },
+      width: {
+        100: '25rem',
+      },
     },
   },
-  plugins: [require('./plugins/bg-stripes')],
+  plugins: [require('./plugins/bg-stripes'), require('./plugins/square-diagonal')],
 }

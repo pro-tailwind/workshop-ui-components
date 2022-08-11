@@ -2,66 +2,45 @@ import React from 'react'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import config from '../tailwind.config'
 
-// import { Button } from './Button';
-
 const { theme } = resolveConfig(config)
 
-export default {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: 'Tokens/Tailwind',
-  // component: Button,
+const story = {
+  title: 'Tokens/Colors',
 }
 
 export const Colors = () => (
-  <div className="mx-auto max-w-5xl py-8 px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-8 items-end gap-x-12 gap-y-8">
-      {Object.entries(theme.colors).map(([key, value]) => {
-        if (typeof value === 'string') return null
-        return (
-          <>
-            <h2 className="p-2 text-right leading-none">{key}</h2>
-            <ul className="justify-stretch col-span-7 flex overflow-hidden rounded-md">
-              {Object.entries(value).map(([shadeKey, value]) => (
-                <li
-                  key={`${key}-${value}`}
-                  className="flex h-16 w-full items-end justify-start p-2 font-semibold leading-none"
-                  style={{
-                    backgroundColor: value,
-                    color: shadeKey < 400 ? theme.colors[key][900] : theme.colors[key][50],
-                  }}
-                >
-                  {shadeKey}
-                </li>
-              ))}
-            </ul>
-          </>
-        )
-      })}
-    </div>
+  <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    {Object.entries(theme.colors).map(([key, value]) => {
+      if (typeof value === 'string') return null
+      return (
+        <div key={value} className="flex items-center gap-12 py-6">
+          <pre className="mt-1 shrink-0 basis-20 text-right font-mono text-sm">
+            <code
+              className="rounded px-2 py-1 font-medium"
+              style={{ backgroundColor: theme.colors[key][100], color: theme.colors[key][900] }}
+            >
+              {key}
+            </code>
+          </pre>
+
+          <ul className="flex flex-1 overflow-hidden rounded-md">
+            {Object.entries(value).map(([shadeKey, value]) => (
+              <li
+                key={`${key}-${value}`}
+                className="flex h-16 w-full items-end justify-start p-2 font-semibold leading-none"
+                style={{
+                  backgroundColor: value,
+                  color: shadeKey < 400 ? theme.colors[key][900] : theme.colors[key][50],
+                }}
+              >
+                {shadeKey}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    })}
   </div>
 )
 
-export const Typography = () => (
-  <div className="mx-auto max-w-5xl py-8 px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-8 items-center gap-x-12 gap-y-8">
-      {Object.entries(theme.fontSize).map(([key, value]) => {
-        return (
-          <>
-            <h2 className="text-right leading-none">{key}</h2>
-            <div className="col-span-7">
-              <p
-                style={{ fontSize: value[0], lineHeight: value[1].lineHeight }}
-                className="truncate"
-              >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              </p>
-            </div>
-          </>
-        )
-      })}
-    </div>
-  </div>
-)
+export default story

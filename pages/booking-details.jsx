@@ -4,15 +4,19 @@ import { useRouter } from 'next/router'
 import { Button } from '../components/button'
 import { Input, Textarea } from '../components/input'
 
-import { parseISO, format } from 'date-fns'
+import { useDateFormatter } from 'react-aria'
 
 export default function BookingDetailsPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+
+  const dateFormatter = useDateFormatter({ dateStyle: 'full' })
+  const timeFormatter = useDateFormatter({ timeStyle: 'short' })
+
   const { time } = router.query
 
   const formattedTime = time
-    ? `${format(parseISO(time), 'eeee, do MMMM yyyy')} at ${format(parseISO(time), 'h:mm a')}`
+    ? `${dateFormatter.format(new Date(time))} at ${timeFormatter.format(new Date(time))}`
     : ''
 
   function handleSubmit(event) {
@@ -36,23 +40,16 @@ export default function BookingDetailsPage() {
       </div>
 
       <div className="mt-20">
-        {/* TODO: Make better styles for form fields (focus state, invalid, etc) */}
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-2 gap-6">
             <Input name="name" id="name" label="Name" required />
             <Input name="email" id="email" label="Email" type="email" required />
           </div>
           <div className="mt-8">
-            <Textarea
-              name="notes"
-              label="Notes & Questions"
-              id="notes"
-              // placeholder="Any comments or suggestions to help prepare our discussion? Please share!"
-            />
+            <Textarea name="notes" label="Notes & Questions" id="notes" />
           </div>
-          {/* TODO: Loading spinner emulating an API call */}
           <div className="mt-8">
-            <Button type="input" isLoading={isLoading}>
+            <Button type="input" isLoading={isLoading} hasIcon>
               Confirm booking
             </Button>
           </div>

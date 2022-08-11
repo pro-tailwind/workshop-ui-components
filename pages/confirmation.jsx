@@ -1,18 +1,22 @@
 import { useRouter } from 'next/router'
 
-import { parseISO, format } from 'date-fns'
+import { useDateFormatter } from 'react-aria'
 
 export default function BookingDetailsPage() {
   const router = useRouter()
+  const dateFormatter = useDateFormatter({ dateStyle: 'full' })
+  const timeFormatter = useDateFormatter({ timeStyle: 'short' })
+
   const { time } = router.query
+
   const formattedTime = time
-    ? `${format(parseISO(time), 'eeee, do MMMM yyyy')} at ${format(parseISO(time), 'h:mm a')}`
+    ? `${dateFormatter.format(new Date(time))} at ${timeFormatter.format(new Date(time))}`
     : ''
 
   return (
     <div className="grid h-full place-items-center p-10">
       <div className="grid justify-items-center">
-        <img src="/img/calendar.svg" alt="" className="mx-auto w-48" />
+        <img src="/img/calendar.svg" alt="" className="mx-auto w-48 drop-shadow-xl" />
         <h1 className="text-3xl font-bold">All set!</h1>
         <div className="mt-4 space-y-2 text-center">
           <p>
