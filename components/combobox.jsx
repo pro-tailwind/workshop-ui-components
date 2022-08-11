@@ -6,15 +6,15 @@ import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 const lookStyles = {
   primary: {
     input:
-      'bg-white rounded-lg border-2 border-slate-400 py-3 pl-3 pr-10 text-sm leading-5 text-gray-900 hover:border-indigo-600 focus:border-indigo-500 focus:outline-none focus:ring focus:ring-indigo-200',
+      'bg-white rounded-lg border-2 border-slate-400 py-3 pl-3 pr-10 text-sm leading-5 text-gray-900 hover:border-primary-600 focus:border-primary-500 focus:outline-none focus:ring focus:ring-primary-200',
     options:
       'absolute z-10 mt-2 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-2 ring-black/5 focus:outline-none sm:text-sm',
-    option: 'bg-indigo-600 text-white',
+    option: 'bg-primary-600 text-white',
     selectedItem: {
       active: 'text-white',
-      inActive: 'text-indigo-500',
+      inActive: 'text-primary-500',
     },
-    selectedItemIcon: { active: 'h-5 w-5 text-white', inactive: 'h-5 w-5 text-indigo-500' },
+    selectedItemIcon: { active: 'h-5 w-5 text-white', inactive: 'h-5 w-5 text-primary-500' },
   },
   secondary: {
     input:

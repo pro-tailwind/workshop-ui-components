@@ -25,7 +25,7 @@ export function PrettyModal({ isOpen, onClose, size, title, footer, children }) 
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-indigo-500/50" />
+            <div className="fixed inset-0 bg-primary-500/50" />
           </Transition.Child>
           <div className="relative grid h-full w-full place-items-center">
             <Transition.Child
