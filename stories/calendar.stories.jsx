@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { addHours, startOfToday, formatISO } from 'date-fns'
+import { now, today, toCalendarDateTime } from '@internationalized/date'
 
 import { Calendar } from '../components/calendar'
+import { CalendarDay } from '../components/calendar/calendar-day'
 import { bookingAvailabilities } from '../data'
-import { addDays } from 'date-fns/esm'
 
 const story = {
   title: 'Components/Calendar',
@@ -11,34 +11,38 @@ const story = {
 }
 
 export function All() {
-  const today = startOfToday()
-  const [selectedDay, setSelectedDay] = useState(today)
+  const [selectedDate, setSelectedDate] = useState(now())
   return (
     <div className="max-w-md">
       <Calendar
-        selectedDay={selectedDay}
-        setSelectedDay={setSelectedDay}
+        aria-label="Availability calendar"
+        value={selectedDate}
+        onChange={setSelectedDate}
         bookingAvailabilities={bookingAvailabilities}
+        minValue={today()}
+        maxValue={today().add({ months: 6 })}
       />
     </div>
   )
 }
 
 export function WithAvailabilityToday() {
-  const today = startOfToday()
-  const [selectedDay, setSelectedDay] = useState(addDays(today, 1))
+  // Set selected date to tomorrow (so we can see today's availability status)
+  const [selectedDate, setSelectedDate] = useState(now().add({ days: 1 }))
+  // Mock availabilities (probably better suited for a mock file!)
   const availabilities = [
-    { startTime: formatISO(today), endTime: addHours(today, 1) },
-    { startTime: addDays(today, 2), endTime: addHours(addDays(today, 2), 1) },
+    { startTime: toCalendarDateTime(today()).add({ hours: 8 }).toString(), endTime: null },
   ]
 
-  console.log({ availabilities })
   return (
     <div className="max-w-md">
       <Calendar
-        selectedDay={selectedDay}
-        setSelectedDay={setSelectedDay}
+        aria-label="Availability calendar"
+        value={selectedDate}
+        onChange={setSelectedDate}
         bookingAvailabilities={availabilities}
+        minValue={today()}
+        maxValue={today().add({ months: 6 })}
       />
     </div>
   )

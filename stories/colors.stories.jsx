@@ -13,7 +13,7 @@ export const Colors = () => (
     {Object.entries(theme.colors).map(([key, value]) => {
       if (typeof value === 'string') return null
       return (
-        <div key={value} className="flex items-center gap-12 py-6">
+        <div key={value} className="flex items-center gap-12 py-4">
           <pre className="mt-1 shrink-0 basis-20 text-right font-mono text-sm">
             <code
               className="rounded px-2 py-1 font-medium"

@@ -3,10 +3,10 @@ import { bookingAvailabilities } from '../data'
 import { Calendar } from '../components/calendar'
 import { TimePicker } from '../components/time-picker'
 import { TimezonePicker } from '../components/timezone-picker'
-import { getLocalTimeZone, today } from '@internationalized/date'
+import { today } from '@internationalized/date'
 
 export default function Homepage({ selectedDate, setSelectedDate }) {
-  const currentDay = today(getLocalTimeZone())
+  const currentDay = today()
   return (
     <div className="mx-auto grid h-full max-w-lg grid-rows-[auto,1fr] gap-8 md:max-w-none">
       <div className="mt-10 px-4 sm:px-8 xl:px-10">
@@ -18,13 +18,11 @@ export default function Homepage({ selectedDate, setSelectedDate }) {
           <div className="px-6 sm:px-8 xl:px-10">
             <Calendar
               aria-label="Availability calendar"
-              selectedDate={selectedDate}
-              setSelectedDate={setSelectedDate}
-              bookingAvailabilities={bookingAvailabilities}
               value={selectedDate}
+              onChange={setSelectedDate}
+              bookingAvailabilities={bookingAvailabilities}
               minValue={currentDay}
               maxValue={currentDay.add({ months: 6 })}
-              onChange={setSelectedDate}
             />
           </div>
           <div className="p-4 sm:p-8 xl:p-10">

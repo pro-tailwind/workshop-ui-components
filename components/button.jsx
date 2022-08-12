@@ -13,7 +13,7 @@
 */
 
 import propTypes from 'prop-types'
-import cx from 'classnames'
+import cx from 'clsx'
 import { ChevronRightIcon } from '@heroicons/react/solid'
 
 // ------------------------------

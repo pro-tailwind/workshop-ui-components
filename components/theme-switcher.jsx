@@ -2,7 +2,7 @@ import { Fragment, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { ChevronDownIcon, CheckIcon } from '@heroicons/react/solid'
 import { ColorSwatchIcon } from '@heroicons/react/outline'
-import cx from 'classnames'
+import cx from 'clsx'
 
 export function ThemeSwitcher({ activeTheme, setActiveTheme }) {
   useEffect(() => {

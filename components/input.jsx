@@ -10,7 +10,7 @@
   which I'll focus on at a later stage (and for which I'll need plenty of Thinkmill insights!)
 */
 
-import cx from 'classnames'
+import cx from 'clsx'
 
 // TODO: Work something out for validation/state of inputs
 export function Input({ name, id, label, type, required = false, ...props }) {

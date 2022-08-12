@@ -57,20 +57,28 @@ export function All() {
 
 export function Large() {
   return (
-    <div className="flex max-w-5xl flex-wrap items-center gap-3">
-      <Button>Primary</Button>
-      <Button look="secondary">Secondary</Button>
+    <div className="max-w-5xl">
+      <div className="flex flex-wrap items-center gap-3">
+        <Button hasIcon>Confirm booking</Button>
+        <Button>Confirm booking</Button>
+        <Button look="secondary">Edit</Button>
+      </div>
     </div>
   )
 }
 
 export function Small() {
   return (
-    <div className="flex max-w-5xl flex-wrap items-center gap-3">
-      <Button size="small">Primary</Button>
-      <Button size="small" look="secondary">
-        Secondary
-      </Button>
+    <div className="max-w-5xl">
+      <div className="flex flex-wrap items-center gap-3">
+        <Button size="small" hasIcon>
+          Confirm
+        </Button>
+        <Button size="small">Confirm</Button>
+        <Button size="small" look="secondary">
+          Edit
+        </Button>
+      </div>
     </div>
   )
 }

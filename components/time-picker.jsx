@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
+import cx from 'clsx'
 import { useDateFormatter } from 'react-aria'
 import { getLocalTimeZone, isSameDay, parseDateTime } from '@internationalized/date'
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { addHours, startOfToday, addDays, formatISO, setHours } from 'date-fns'
+
+import { today, toCalendarDateTime } from '@internationalized/date'
 
 import { TimePicker } from '../components/time-picker'
 
@@ -11,54 +12,116 @@ const story = {
 }
 
 export function NoVacancy() {
-  const today = startOfToday()
-  const [selectedDay] = useState(today)
+  const [selectedDate] = useState(today())
   return (
     <div className="w-80">
-      <TimePicker selectedDay={selectedDay} bookingAvailabilities={bookingAvailabilities} />
+      <TimePicker selectedDate={selectedDate} bookingAvailabilities={bookingAvailabilities} />
     </div>
   )
 }
 
 export function Vacancy() {
-  const today = startOfToday()
-  const [selectedDay] = useState(today)
+  const [selectedDate] = useState(today())
   const availabilities = [
-    { startTime: formatISO(setHours(today, 8)), endTime: formatISO(setHours(today, 9)) },
-    { startTime: formatISO(setHours(today, 10)), endTime: formatISO(setHours(today, 11)) },
-    { startTime: formatISO(setHours(today, 12)), endTime: formatISO(setHours(today, 13)) },
-    { startTime: formatISO(setHours(today, 14)), endTime: formatISO(setHours(today, 15)) },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
   ]
   return (
     <div className="w-80">
-      <TimePicker selectedDay={selectedDay} bookingAvailabilities={availabilities} />
+      <TimePicker selectedDate={selectedDate} bookingAvailabilities={availabilities} />
     </div>
   )
 }
 
 export function ScrollingList() {
-  const today = startOfToday()
-  const [selectedDay] = useState(today)
+  const [selectedDate] = useState(today())
   const availabilities = [
-    { startTime: formatISO(setHours(today, 6)), endTime: formatISO(setHours(today, 7)) },
-    { startTime: formatISO(setHours(today, 7)), endTime: formatISO(setHours(today, 8)) },
-    { startTime: formatISO(setHours(today, 8)), endTime: formatISO(setHours(today, 9)) },
-    { startTime: formatISO(setHours(today, 9)), endTime: formatISO(setHours(today, 10)) },
-    { startTime: formatISO(setHours(today, 10)), endTime: formatISO(setHours(today, 11)) },
-    { startTime: formatISO(setHours(today, 11)), endTime: formatISO(setHours(today, 12)) },
-    { startTime: formatISO(setHours(today, 12)), endTime: formatISO(setHours(today, 13)) },
-    { startTime: formatISO(setHours(today, 13)), endTime: formatISO(setHours(today, 14)) },
-    { startTime: formatISO(setHours(today, 14)), endTime: formatISO(setHours(today, 15)) },
-    { startTime: formatISO(setHours(today, 15)), endTime: formatISO(setHours(today, 16)) },
-    { startTime: formatISO(setHours(today, 16)), endTime: formatISO(setHours(today, 17)) },
-    { startTime: formatISO(setHours(today, 17)), endTime: formatISO(setHours(today, 18)) },
-    { startTime: formatISO(setHours(today, 18)), endTime: formatISO(setHours(today, 19)) },
-    { startTime: formatISO(setHours(today, 19)), endTime: formatISO(setHours(today, 20)) },
-    { startTime: formatISO(setHours(today, 20)), endTime: formatISO(setHours(today, 21)) },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
+    {
+      startTime: toCalendarDateTime(today()).toString(),
+      endTime: toCalendarDateTime(today()).add({ hours: 1 }).toString(),
+    },
   ]
   return (
     <div className="h-[400px] w-80 ring ring-black/10">
-      <TimePicker selectedDay={selectedDay} bookingAvailabilities={availabilities} />
+      <TimePicker selectedDate={selectedDate} bookingAvailabilities={availabilities} />
     </div>
   )
 }

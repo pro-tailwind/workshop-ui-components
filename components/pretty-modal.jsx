@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import { Dialog, Transition } from '@headlessui/react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 const twClasses = {
   containerWidth: {

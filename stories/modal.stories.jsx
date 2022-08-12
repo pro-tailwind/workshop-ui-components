@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { PrettyModal } from '../components/pretty-modal'
 import { Button } from '../components/button'
